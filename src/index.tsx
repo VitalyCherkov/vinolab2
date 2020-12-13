@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ConfigProvider } from 'antd';
+import { BrowserRouter } from 'react-router-dom';
+import ruAntd from 'antd/lib/locale/ru_RU';
+import { App } from './App';
+import { initDayJs } from './utils/initDayJS';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+initDayJs();
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <ConfigProvider locale={ruAntd}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+    </ConfigProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
